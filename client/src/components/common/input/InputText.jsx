@@ -3,9 +3,9 @@ import styled from "styled-components/macro";
 
 const Input = styled.input`
   background: #fff;
-  height: 4rem;
+  height: 3rem;
   border: 1px solid #b5bfc4;
-  padding: 0 10px;
+  padding: 0 8px;
   width: ${(props) => props.width};
   font-size: 1.4rem;
   color: #222;
@@ -35,6 +35,7 @@ const Input = styled.input`
 `;
 
 const InputText = forwardRef((props, ref) => {
+  console.log(props);
   return (
     <Input
       onKeyPress={props.onKeyPress}
@@ -42,7 +43,6 @@ const InputText = forwardRef((props, ref) => {
       type="text"
       id={props.id}
       ref={ref}
-      name={props.name}
       value={props.value || ""}
       onChange={(e) => props.onChange(e)}
       width={props.width}
@@ -56,7 +56,6 @@ const InputText = forwardRef((props, ref) => {
 InputText.defaultProps = {
   placeholder: "",
   width: "100%",
-  name: "",
   error: false,
   disabled: false,
   defaultValue: null,

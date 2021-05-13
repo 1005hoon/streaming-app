@@ -1,2 +1,9 @@
-export { signIn, signOut } from "./authActions";
-export { changeInput } from "./formActions";
+import { SIGN_IN, SIGN_OUT } from "./types";
+
+export const signIn = (user) => {
+  return { type: SIGN_IN, payload: user };
+};
+
+export const signOut = () => {
+  return { type: SIGN_OUT };
+};
