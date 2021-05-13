@@ -1,22 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import HeaderButton from "../common/button/HeaderButton";
+import { connect } from "react-redux";
+import { signIn, signOut } from "../../actions";
 
-const GoogleAuth = ({ className }) => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
-
+const GoogleAuth = (props) => {
+  // actual sign in logic
   const signInHandler = () => {
     const auth = window.gapi.auth2.getAuthInstance();
     auth.signIn();
   };
 
+  // actual sign out logic
   const signOutHandler = () => {
     const auth = window.gapi.auth2.getAuthInstance();
     auth.signOut();
   };
 
+  // state management for user state updates
   const authStateChangeHandler = (authInstance) => {
-    const userAuthStatus = authInstance.isSignedIn.get();
-    setIsSignedIn(userAuthStatus);
+    const isLoggedIn = authInstance.isSignedIn.get();
+
+    if (isLoggedIn) {
+      const user = {
+        id: authInstance.currentUser.get().getBasicProfile().getId(),
+        email: authInstance.currentUser.get().getBasicProfile().getEmail(),
+        name: authInstance.currentUser.get().getBasicProfile().getName(),
+        avatar: authInstance.currentUser.get().getBasicProfile().getImageUrl(),
+      };
+
+      props.signIn(user);
+    } else {
+      props.signOut();
+    }
   };
 
   useEffect(() => {
@@ -28,9 +43,8 @@ const GoogleAuth = ({ className }) => {
         scope: "email",
       });
       const authInstance = window.gapi.auth2.getAuthInstance();
-      const userAuthStatus = authInstance.isSignedIn.get();
 
-      setIsSignedIn(userAuthStatus);
+      authStateChangeHandler(authInstance);
 
       // listening to change in auth state
       authInstance.isSignedIn.listen(() =>
@@ -39,23 +53,35 @@ const GoogleAuth = ({ className }) => {
     });
   }, []);
 
-  const renderAuthButton = (style) => {
+  const renderAuthButton = ({ isSignedIn, className }) => {
     if (isSignedIn === false) {
       return (
-        <HeaderButton width="10rem" className={style} onClick={signInHandler}>
+        <HeaderButton
+          width="10rem"
+          className={className}
+          onClick={signInHandler}
+        >
           로그인
         </HeaderButton>
       );
     } else {
       return (
-        <HeaderButton width="10rem" className={style} onClick={signOutHandler}>
+        <HeaderButton
+          width="10rem"
+          className={className}
+          onClick={signOutHandler}
+        >
           로그아웃
         </HeaderButton>
       );
     }
   };
 
-  return renderAuthButton(className);
+  return renderAuthButton(props);
 };
 
-export default GoogleAuth;
+const mapStateToProps = (state) => {
+  return { isSignedIn: state.auth.isSignedIn };
+};
+
+export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
