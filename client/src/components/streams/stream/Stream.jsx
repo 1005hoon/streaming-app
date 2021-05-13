@@ -29,8 +29,8 @@ const Stream = (props) => {
         <div className={styles.metadata}>
           <h3 className={styles.title}>{props.title}</h3>
           <p className={styles.streamer}>{props.user.name}</p>
-          <p className={styles.description}>{props.description}</p>
         </div>
+        <p className={styles.description}>{props.description}</p>
       </div>
     </div>
   );
