@@ -17,7 +17,7 @@ const Header = () => {
         <nav>
           <ul className={styles["nav-links"]}>
             <Link className={styles["link-item"]} to="/streams/show">
-              All Streams
+              스트리밍 보기
             </Link>
             <GoogleAuth className={styles["link-item"]} />
           </ul>

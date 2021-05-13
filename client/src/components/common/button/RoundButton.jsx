@@ -57,4 +57,12 @@ const RoundButton = ({ onClick, width, className, disabled, children }) => {
   );
 };
 
+RoundButton.defaultProps = {
+  onClick: () => {},
+  width: "auto",
+  className: "",
+  disabled: false,
+  children: "버튼 텍스트를 입력해주세요",
+};
+
 export default RoundButton;
