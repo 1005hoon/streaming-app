@@ -3,11 +3,11 @@ import styled from "styled-components/macro";
 
 const Input = styled.input`
   background: #fff;
-  height: 4rem;
+  height: 3.5rem;
   border: 1px solid #b5bfc4;
   padding: 0 10px;
   width: ${(props) => props.width};
-  font-size: 1.4rem;
+  font-size: 13px;
   color: #222;
   letter-spacing: -0.52px;
   border-color: ${(props) => (props.error ? "#ffabab" : "#b5fc4")};

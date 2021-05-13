@@ -1,4 +1,4 @@
-import { CHANGE_INPUT } from "../actions/types";
+import { CHANGE_INPUT, RESET_INPUT } from "../actions/types";
 
 const INITIAL_STATE = {
   title: "",
@@ -11,6 +11,11 @@ const formReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         [action.payload.key]: action.payload.value,
+      };
+    case RESET_INPUT:
+      return {
+        ...state,
+        ...INITIAL_STATE,
       };
 
     default:

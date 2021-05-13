@@ -55,7 +55,7 @@ function FilledRoundButton(props) {
 }
 
 FilledRoundButton.defaultProps = {
-  children: "내용이 비어있습니다",
+  children: "버튼 텍스트를 입력해주세요",
   width: "auto",
   onClick: () => {},
 };

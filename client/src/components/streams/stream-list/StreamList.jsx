@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getAllStreams } from "../../../actions";
+import Stream from "../stream/Stream";
+import styles from "./stream-list.module.scss";
 
-const StreamList = () => {
+const StreamList = (props) => {
+  useEffect(() => {
+    props.getAllStreams();
+  }, []);
+
+  const renderStreams = () => {
+    return props.streams.map((stream) => (
+      <Stream key={stream.id} {...stream} />
+    ));
+  };
   return (
-    <div>
-      <h1>List Streams</h1>
-    </div>
+    <main>
+      <h2 className={styles.title}>라이브 스트리밍 보기</h2>
+      <section className={styles.streams}>{renderStreams()}</section>
+    </main>
   );
 };
 
-export default StreamList;
+const mapStateToProps = (state) => {
+  return {
+    streams: Object.values(state.streams),
+  };
+};
+export default connect(mapStateToProps, { getAllStreams })(StreamList);

@@ -1,8 +1,9 @@
 .body {
-  width: 100%;
-  margin-top: 6rem;
+  margin-top: 8rem;
   min-height: 90vh;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
+
+  @media only screen and (max-width: 1400px) {
+    padding: 0 2rem;
+  }
 }
