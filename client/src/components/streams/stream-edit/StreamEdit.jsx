@@ -1,25 +1,33 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
-import { getOneStream } from "../../../actions";
-
+import { getOneStream, updateStream } from "../../../actions";
+import StreamForm from "../stream-form/StreamForm";
 const StreamEdit = (props) => {
   const { id } = props.match.params;
   useEffect(() => {
     props.getOneStream(id);
   }, []);
 
+  const handleFormSubmit = (formValue) => {
+    props.updateStream(id, formValue);
+  };
+
   return (
-    <>
-      {!props.stream && <h1>Loading Stream Data</h1>}
-      <h1>Edit Stream</h1>
-    </>
+    <StreamForm
+      title="스트림 수정하기"
+      stream={props.stream}
+      onSubmit={handleFormSubmit}
+    />
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     stream: state.streams[ownProps.match.params.id],
+    user: state.auth.user,
   };
 };
 
-export default connect(mapStateToProps, { getOneStream })(StreamEdit);
+export default connect(mapStateToProps, { getOneStream, updateStream })(
+  StreamEdit
+);
