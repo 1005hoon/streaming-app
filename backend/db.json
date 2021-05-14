@@ -34,17 +34,6 @@
       "id": 4
     },
     {
-      "title": "테스트 1",
-      "description": "이거제댜헝ㅁ레ㅣㅏ호ㅜㅊ티ㅗㅜㅇㅁㄴㄹㅎㅎㅊㄴㅍ",
-      "user": {
-        "id": "116893024719939486083",
-        "email": "shoonoh11@gmail.com",
-        "name": "Seunghoon Oh",
-        "avatar": "https://lh3.googleusercontent.com/a-/AOh14GiDDNtWbNCuCeAOm7uaWHavYWHTP9FTMaGFhmkN=s96-c"
-      },
-      "id": 5
-    },
-    {
       "title": "테스트",
       "description": "푸시 되나",
       "user": {
@@ -67,17 +56,6 @@
       "id": 7
     },
     {
-      "title": "asdgsdagad",
-      "description": "gsdadgsadgsdag",
-      "user": {
-        "id": "116893024719939486083",
-        "email": "shoonoh11@gmail.com",
-        "name": "Seunghoon Oh",
-        "avatar": "https://lh3.googleusercontent.com/a-/AOh14GiDDNtWbNCuCeAOm7uaWHavYWHTP9FTMaGFhmkN=s96-c"
-      },
-      "id": 8
-    },
-    {
       "title": "리팩토링",
       "description": "생성 잘 되나?",
       "user": {
@@ -87,17 +65,6 @@
         "avatar": "https://lh3.googleusercontent.com/a-/AOh14GiDDNtWbNCuCeAOm7uaWHavYWHTP9FTMaGFhmkN=s96-c"
       },
       "id": 9
-    },
-    {
-      "title": "다음장으로",
-      "description": "넘ㅇ너가나",
-      "user": {
-        "id": "116893024719939486083",
-        "email": "shoonoh11@gmail.com",
-        "name": "Seunghoon Oh",
-        "avatar": "https://lh3.googleusercontent.com/a-/AOh14GiDDNtWbNCuCeAOm7uaWHavYWHTP9FTMaGFhmkN=s96-c"
-      },
-      "id": 10
     }
   ]
 }
