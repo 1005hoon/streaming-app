@@ -8,7 +8,6 @@ const Stream = (props) => {
   const renderAvatar = (avatar) => {
     return avatar === "" ? kong : avatar;
   };
-  console.log(props);
 
   const renderEditDeleteButtons = (currentUserId, streamerId) => {
     if (currentUserId === streamerId) {
@@ -20,15 +19,21 @@ const Stream = (props) => {
       );
     }
   };
+
   return (
     <div className={styles.stream}>
       <div className={styles["image-wrapper"]}>
         <img src={renderAvatar(props.user.avatar)} alt="사진넣어주세요" />
       </div>
       <div className={styles["text-wrapper"]}>
-        <div className={styles.metadata}>
-          <h3 className={styles.title}>{props.title}</h3>
-          <p className={styles.streamer}>{props.user.name}</p>
+        <div className={styles.header}>
+          <div className={styles.metadata}>
+            <h3 className={styles.title}>{props.title}</h3>
+            <p className={styles.streamer}>{props.user.name}</p>
+          </div>
+          <div className={styles.buttons}>
+            {renderEditDeleteButtons(props.currentUserId, props.user.id)}
+          </div>
         </div>
         <p className={styles.description}>{props.description}</p>
       </div>

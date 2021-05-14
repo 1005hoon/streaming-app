@@ -15,7 +15,7 @@ const streamReducer = (state = {}, action) => {
           [cur.id]: cur,
         };
       }, {});
-      console.log(fetchedStreams);
+
       return {
         ...state,
         ...fetchedStreams,

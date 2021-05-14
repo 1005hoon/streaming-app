@@ -25,15 +25,21 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .metadata {
+    .header {
       display: flex;
-      flex-direction: column;
-      font-size: 1.4rem;
+      width: 100%;
+      justify-content: space-between;
 
-      .streamer {
-        margin-top: 2px;
-        font-size: 1rem;
-        letter-spacing: -0.54px;
+      .metadata {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.4rem;
+
+        .streamer {
+          margin-top: 2px;
+          font-size: 1rem;
+          letter-spacing: -0.54px;
+        }
       }
     }
 
