@@ -5,7 +5,6 @@ import styles from "./header.module.scss";
 import { connect } from "react-redux";
 
 const Header = (props) => {
-  console.log(props);
   return (
     <header className={styles.header}>
       <div className={styles.layout}>

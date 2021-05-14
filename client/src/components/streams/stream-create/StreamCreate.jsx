@@ -5,8 +5,10 @@ import { changeInput, resetInput, createStream } from "../../../actions";
 import InputText from "../../common/input/InputText";
 import FilledRoundButton from "../../common/button/FilledRoundButton";
 import styles from "./stream-create.module.scss";
+import { useHistory } from "react-router";
 
 const StreamCreate = (props) => {
+  const history = useHistory();
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
 
@@ -22,6 +24,7 @@ const StreamCreate = (props) => {
     descriptionRef.current.value = "";
     props.createStream(props.form);
     props.resetInput();
+    history.push("/");
   };
 
   return (

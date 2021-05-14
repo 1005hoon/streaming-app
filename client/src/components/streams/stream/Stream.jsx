@@ -13,8 +13,8 @@ const Stream = (props) => {
     if (currentUserId === streamerId) {
       return (
         <>
-          <LineButton>수정하기</LineButton>
-          <LineButton>삭제하기</LineButton>
+          <LineButton to={`/streams/edit/${props.id}`}>수정하기</LineButton>
+          <LineButton to={`/streams/delete/${props.id}`}>삭제하기</LineButton>
         </>
       );
     }
